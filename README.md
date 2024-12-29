@@ -32,6 +32,7 @@ This project processes and visualizes seismic data from MiniSEED files and IRIS 
 - ├── README.md             # Project Documentation
 - ├── SEP/                 # Seismic data files (.mseed) for SEP, generic import can pull any .mseed format
 - └── Data/database.db           # SQLite Database (ignored by Git)
+- └── Test_Data/*.db&.mseed      # SQLite testing DB and single test mseed
 ### **1. Start Here**
 
 Run the following setup block in your **Google Colab Notebook** Or Locally,
