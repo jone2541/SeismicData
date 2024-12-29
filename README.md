@@ -123,13 +123,22 @@ def main():
     #import_stations_api(conn,cursor)
     network_filter = "CC"
 ```
-### **3. Run the notebook**
-Run the setup, configure in main(), then activate:
+### **3 Unit testing the notebook**
+Unit testing will require you to the create a Test_data folder, and a single mseed file within it.
+I advise you to comment out main() when doing unit testing
 ```python
 if __name__ == '__main__':
+    unittest.main(argv=[''], exit=False)
+    #main()
+```
+### **4. Run the notebook**
+Run the setup, configure in main(), comment out testing if not needed, and then activate:
+```python
+if __name__ == '__main__':
+    #unittest.main(argv=[''], exit=False)
     main()
 ```
-### **4. Using the visualizations**
+### **5. Using the visualizations**
 Using the legend, you can click into clusters that have data:
 ![alt text](legend.png)
 Here's an example of the map without any filter for networks:
@@ -148,10 +157,9 @@ Searching for HOA Station
 ![alt text](Search_3.png)
 Searching for SUG Station
 ![alt text](Search_4.png)
-### **5. Future Additions**
+### **6. Future Additions**
 - 1: Add parallel processing for the imports, api calls, and generation of the map
 - 2: Add generalization and static objects for the javascript, images, and marks used in the html
-- 3: Add unit testing for the SQLite, data imports, and API polling sections
 
 ## 📧 Contact
 For inquiries, please reach out via:
