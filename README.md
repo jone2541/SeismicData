@@ -74,6 +74,7 @@ else:
     import logging
     import gc
     import requests
+    import unittest
     import matplotlib.pyplot as plt
     from folium.plugins import MarkerCluster, Search, TagFilterButton
     import base64
