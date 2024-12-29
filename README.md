@@ -27,6 +27,7 @@ This project processes and visualizes seismic data from MiniSEED files and IRIS 
 ---
 
 ## 🛠️ **Setup Instructions**
+### **Folder setup**
 - ├── main.ipynb            # Google Colab Notebook
 - ├── README.md             # Project Documentation
 - ├── SEP/                 # Seismic data files (.mseed) for SEP, generic import can pull any .mseed format
@@ -85,12 +86,14 @@ Define the SQLite DB location, default = 'Data' in main():
 ```python
 def main():
     #Initialize Database
-    conn = get_connection('Data')
+    db_file_path = 'Data'
+    ensure_directory_exists(db_file_path)
+    conn = get_connection(db_file_path)
     cursor = conn.cursor()
     cursor.close()
     conn.close()
     #Creates a SQLite DB in the given file path, Default 'Data/'
-    conn = get_connection('Data')
+    conn = get_connection(db_file_path)
     cursor = conn.cursor()
     #Creates the tables
     create_tables(cursor)
@@ -101,7 +104,9 @@ Define the mseed folders to import in main():
 def main():
     #...
     #imports the mseed files in the given path, default 'SEP/'
-    import_streams(conn,cursor,'SEP/')
+    mseed_file_path = 'SEP/'
+    ensure_directory_exists(mseed_file_path)
+    import_streams(conn,cursor,mseed_file_path)
     conn.commit()
     #Queries the IRIS API for the location data, and updates the station table
     update_stations(conn,cursor)
