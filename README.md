@@ -124,7 +124,7 @@ def main():
     network_filter = "CC"
 ```
 ### **3 Unit testing the notebook**
-Unit testing will require you to the create a Test_data folder, and a single mseed file within it.
+Unit testing will require you to the create a Test_Data folder, and a single mseed file within it.
 I advise you to comment out main() when doing unit testing
 ```python
 if __name__ == '__main__':
