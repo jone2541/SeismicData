@@ -27,10 +27,10 @@ This project processes and visualizes seismic data from MiniSEED files and IRIS 
 ---
 
 ## 🛠️ **Setup Instructions**
-├── main.ipynb            # Google Colab Notebook
-├── README.md             # Project Documentation
-├── SEP/                 # Seismic data files (.mseed) for SEP, generic import can pull any .mseed format
-└── Data/database.db           # SQLite Database (ignored by Git)
+- ├── main.ipynb            # Google Colab Notebook
+- ├── README.md             # Project Documentation
+- ├── SEP/                 # Seismic data files (.mseed) for SEP, generic import can pull any .mseed format
+- └── Data/database.db           # SQLite Database (ignored by Git)
 ### **1. Start Here**
 
 Run the following setup block in your **Google Colab Notebook** Or Locally,
@@ -144,6 +144,11 @@ Searching for HOA Station
 Searching for SUG Station
 ![alt text](Search_4.png)
 ### **5. Future Additions**
-1: Add parallel processing for the imports, api calls, and generation of the map
-2: Add generalization and static objects for the javascript, images, and marks used in the html
-3: Add unit testing for the SQLite, data imports, and API polling sections
+- 1: Add parallel processing for the imports, api calls, and generation of the map
+- 2: Add generalization and static objects for the javascript, images, and marks used in the html
+- 3: Add unit testing for the SQLite, data imports, and API polling sections
+
+## 📧 Contact
+For inquiries, please reach out via:
+- 📧 **Email:** [timothy.g.jones2@gmail.com](mailto:timothy.g.jones2@gmail.com)  
+- 🔗 **LinkedIn:** [linkedin.com/in/timothy-jones-735417265](https://linkedin.com/in/timothy-jones-735417265)
