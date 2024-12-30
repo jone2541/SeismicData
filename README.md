@@ -38,26 +38,15 @@ This project processes and visualizes seismic data from MiniSEED files and IRIS 
 Run the following setup block in your **Google Colab Notebook** Or Locally,
 you will possibly need to run this section twice, or you can simply 'run all' trice for the full program:
 The git clone setup will download the files into the current directory
+If you need to setup colab, then you need to set 'Initial_Setup' to True
+and will download the repo and create the SeismicData folder,
+Then it will move the files into the current directory for the rest of the workbook.
+It will warn you to restart the session after setup is done.
 ![alt text](git_clone_true.png)
-```python
-# Start Here
-#If you need to setup colab, then you need to set 'Download_Setup' to True
-#and will download the repo and create the SeismicData folder,
-#Then it will move the files into the current directory for the rest of the workbook
-Download_Setup = True
-if Download_Setup:
-  !git clone https://github.com/jone2541/SeismicData.git
-  !mv SeismicData/* ./
-  !mv SeismicData/.* ./
-  !rm -rf SeismicData/
-```
+
 Set to false if you don't want to download the files locally, default it does
 ![alt text](git_clone_false.png)
 
-
-Next part of the setup requires you to download the needed libraries.
-It will warn you to restart the session.
-![alt text](Setup_2.png)
 ```python
 # Start Here
 # Initial_Setup = True will setup the directories and files from git, and the libraries.
@@ -65,7 +54,7 @@ It will warn you to restart the session.
 #If you need to redownload in colab, then you need to set 'Download_Setup' to True
 #and will download the repo and create the SeismicData folder,
 #Then it will move the files into the current directory for the rest of the workbook.
-Initial_Setup = False # Set to False after inital setup
+Initial_Setup = True # Set to False after inital setup
 Download_Setup = False
 if Download_Setup or Initial_Setup:
   !git clone https://github.com/jone2541/SeismicData.git
@@ -106,7 +95,9 @@ else:
   from obspy import read
   print("✅ All packages successfully installed and imported.")
 ```
-Reconnect to the session, and click 'run all'
+Set the Initial_Setup Variable to False
+![alt text](Setup_1.png)
+Then click 'run all'
 ![alt text](Setup_7.png)
 You should see it return this:
 ![alt text](Setup_3.png)
