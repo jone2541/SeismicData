@@ -59,49 +59,52 @@ Next part of the setup requires you to download the needed libraries.
 It will warn you to restart the session.
 ![alt text](Setup_2.png)
 ```python
-# For this part it will install the needed libraries, and will restart the runtime to reload them
-# Install necessary libraries from https://docs.obspy.org/packages/obspy.io.mseed.html
+# Start Here
+# Initial_Setup = True will setup the directories and files from git, and the libraries.
+# You will need to set to False after the session restarts.
+#If you need to redownload in colab, then you need to set 'Download_Setup' to True
+#and will download the repo and create the SeismicData folder,
+#Then it will move the files into the current directory for the rest of the workbook.
+Initial_Setup = False # Set to False after inital setup
+Download_Setup = False
+if Download_Setup or Initial_Setup:
+  !git clone https://github.com/jone2541/SeismicData.git
+  !mv SeismicData/* ./
+  !mv SeismicData/.* ./
+  !rm -rf SeismicData/
+
+
+#Install libaries needed from https://docs.obspy.org/packages/obspy.io.mseed.html
 import os
-# This sets up the environment with the correct packages and restarts the Colab runtime. 
-# You will need to run this section twice
-if not os.path.exists("restart_flag.txt"):
-    # Install Required Packages
-    %pip install obspy pandas matplotlib folium sqlalchemy
-
-    # Create a restart flag file
-    with open("restart_flag.txt", "w") as f:
-        f.write("restart")
-
-    # Restart the runtime
-    print("✅ Packages installed. Restarting runtime to apply changes...")
-    os.kill(os.getpid(), 9)
+# This is to setup the environment with the correct packages, and will restart the session for colab
+# Default is you need to setup, and Lb_Setup is set to True
+Lb_Setup = False
+if Lb_Setup or Initial_Setup:
+  # Install Required Packages
+  %pip install obspy pandas matplotlib folium sqlalchemy
+  # Restart the runtime
+  print("✅ Packages installed. User needs to restart runtime to apply changes...")
 else:
-    # Remove the restart flag file
-    os.remove("restart_flag.txt")
-
-    # Continue with the rest of your code
-    print("✅ Runtime restarted. Continuing with the next steps...")
-
-    # Import packages after installation
-    import obspy
-    import pandas as pd
-    import matplotlib
-    import folium
-    from folium import Element, LayerControl, FeatureGroup
-    import sqlalchemy
-    import sqlite3
-    import io
-    import logging
-    import gc
-    import requests
-    import unittest
-    import matplotlib.pyplot as plt
-    from folium.plugins import MarkerCluster, Search, TagFilterButton
-    import base64
-    from IPython.display import display
-    from obspy import read
-
-    print("✅ All packages successfully installed and imported.")
+  #Import post install
+  import obspy
+  import pandas as pd
+  import matplotlib
+  import folium
+  from folium import Element, LayerControl, FeatureGroup
+  import sqlalchemy
+  import sqlite3
+  import os
+  import io
+  import logging
+  import gc
+  import requests
+  import unittest
+  import matplotlib.pyplot as plt
+  from folium.plugins import MarkerCluster, Search, TagFilterButton
+  import base64
+  from IPython.display import display
+  from obspy import read
+  print("✅ All packages successfully installed and imported.")
 ```
 Reconnect to the session, and click 'run all'
 ![alt text](Setup_7.png)
