@@ -36,10 +36,30 @@ This project processes and visualizes seismic data from MiniSEED files and IRIS 
 ### **1. Start Here**
 
 Run the following setup block in your **Google Colab Notebook** Or Locally,
-you will possibly need to run this section twice:
-
+you will possibly need to run this section twice, or you can simply 'run all' trice for the full program:
+The git clone setup will download the files into the current directory
+![alt text](git_clone_true.png)
 ```python
 # Start Here
+#If you need to setup colab, then you need to set 'Download_Setup' to True
+#and will download the repo and create the SeismicData folder,
+#Then it will move the files into the current directory for the rest of the workbook
+Download_Setup = True
+if Download_Setup:
+  !git clone https://github.com/jone2541/SeismicData.git
+  !mv SeismicData/* ./
+  !mv SeismicData/.* ./
+  !rm -rf SeismicData/
+```
+Set to false if you don't want to download the files locally, default it does
+![alt text](git_clone_flase.png)
+
+
+Next part of the setup requires you to download the needed libraries.
+It will warn you to restart the session.
+![alt text](setup_2.png)
+```python
+# For this part it will install the needed libraries, and will restart the runtime to reload them
 # Install necessary libraries from https://docs.obspy.org/packages/obspy.io.mseed.html
 import os
 # This sets up the environment with the correct packages and restarts the Colab runtime. 
@@ -83,6 +103,12 @@ else:
 
     print("✅ All packages successfully installed and imported.")
 ```
+Reconnect to the session, and click 'run all'
+![alt text](setup_7.png)
+You should see it return this:
+![alt text](setup_3.png)
+Then at the bottom of the playbook, you should see it complete with the baseline configuration
+![alt text](setup_6.png)
 ### **2. Usage**
 Define the SQLite DB location, default = 'Data' in main():
 ```python
