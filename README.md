@@ -52,12 +52,12 @@ if Download_Setup:
   !rm -rf SeismicData/
 ```
 Set to false if you don't want to download the files locally, default it does
-![alt text](git_clone_flase.png)
+![alt text](git_clone_false.png)
 
 
 Next part of the setup requires you to download the needed libraries.
 It will warn you to restart the session.
-![alt text](setup_2.png)
+![alt text](Setup_2.png)
 ```python
 # For this part it will install the needed libraries, and will restart the runtime to reload them
 # Install necessary libraries from https://docs.obspy.org/packages/obspy.io.mseed.html
@@ -104,11 +104,11 @@ else:
     print("✅ All packages successfully installed and imported.")
 ```
 Reconnect to the session, and click 'run all'
-![alt text](setup_7.png)
+![alt text](Setup_7.png)
 You should see it return this:
-![alt text](setup_3.png)
+![alt text](Setup_3.png)
 Then at the bottom of the playbook, you should see it complete with the baseline configuration
-![alt text](setup_6.png)
+![alt text](Setup_6.png)
 ### **2. Usage**
 Define the SQLite DB location, default = 'Data' in main():
 ```python
